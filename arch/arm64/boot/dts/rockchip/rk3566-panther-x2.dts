@@ -586,9 +586,11 @@
 		spi-max-frequency = <15000000>;
 		// spi-cs-high;
 		status = "okay";
+		witdh = <240>;
+		height = <280>;
 		spi-cpol;
 		spi-cpha;
-		fps = <30>;
+		fps = <20>;
 		buswidth = <8>;
 	};
 };
