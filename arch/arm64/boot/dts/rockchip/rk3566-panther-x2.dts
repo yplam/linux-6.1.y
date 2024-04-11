@@ -576,6 +576,14 @@
 	pinctrl-1 = <&spi3m0_cs0 &spi3m0_pins_hs>;
 	max-freq = <50000000>;
 
+	spidev@0 {
+		compatible = "rockchip,spidev";
+		status = "okay";
+		reg = <0>;
+		spi-max-frequency = <50000000>;
+	};
+
+/*
 	panel@0{
 		compatible = "sitronix,st7789v";
 		reg = <0>;
@@ -592,7 +600,7 @@
 		spi-cpha;
 		fps = <20>;
 		buswidth = <8>;
-	};
+	}; */
 };
 
 &uart7 {
