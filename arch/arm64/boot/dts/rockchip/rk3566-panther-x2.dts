@@ -571,36 +571,15 @@
 	status = "okay";
 	#address-cells = <1>;
 	#size-cells = <0>;
-	pinctrl-names = "default", "high_speed";
+	pinctrl-names = "default";
 	pinctrl-0 = <&spi3m0_cs0 &spi3m0_pins>;
-	pinctrl-1 = <&spi3m0_cs0 &spi3m0_pins_hs>;
-	max-freq = <50000000>;
-
+	max-freq = <16000000>;
 	spidev@0 {
 		compatible = "rockchip,spidev";
 		status = "okay";
 		reg = <0>;
-		spi-max-frequency = <50000000>;
+		spi-max-frequency = <16000000>;
 	};
-
-/*
-	panel@0{
-		compatible = "sitronix,st7789v";
-		reg = <0>;
-		// backlight = <&pwm0>;
-		dc-gpios = <&gpio4 RK_PB4 GPIO_ACTIVE_LOW>;
-		reset-gpios = <&gpio4 RK_PB5 GPIO_ACTIVE_LOW>;
-		// led-gpios = <&gpio4 RK_PA7 GPIO_ACTIVE_HIGH>;  
-		spi-max-frequency = <15000000>;
-		// spi-cs-high;
-		status = "okay";
-		witdh = <240>;
-		height = <280>;
-		spi-cpol;
-		spi-cpha;
-		fps = <20>;
-		buswidth = <8>;
-	}; */
 };
 
 &uart7 {
