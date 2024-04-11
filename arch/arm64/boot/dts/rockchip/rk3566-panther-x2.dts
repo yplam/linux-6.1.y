@@ -575,7 +575,7 @@
 	pinctrl-0 = <&spi3m0_cs0 &spi3m0_pins>;
 	max-freq = <16000000>;
 	spidev@0 {
-		compatible = "rockchip,spidev";
+		compatible = "semtech,sx1301";
 		status = "okay";
 		reg = <0>;
 		spi-max-frequency = <16000000>;
