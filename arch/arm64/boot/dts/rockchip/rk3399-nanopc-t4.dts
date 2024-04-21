@@ -1,19 +1,9 @@
-// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-/*
- * FriendlyElec NanoPC-T4 board device tree source
- *
- * Copyright (c) 2018 FriendlyElec Computer Tech. Co., Ltd.
- * (http://www.friendlyarm.com)
- *
- * Copyright (c) 2018 Collabora Ltd.
- */
-
 /dts-v1/;
 #include "rk3399-nanopi4.dtsi"
 
 / {
-	model = "FriendlyElec NanoPC-T4";
-	compatible = "friendlyarm,nanopc-t4", "rockchip,rk3399";
+	model = "MRK3399_KJ_V00";
+	compatible = "ROCKCHIP,MRK3399", "rockchip,rk3399";
 
 	vcc12v0_sys: vcc12v0-sys {
 		compatible = "regulator-fixed";
@@ -95,9 +85,7 @@
 };
 
 &pcie0 {
-	ep-gpios = <&gpio2 RK_PA4 GPIO_ACTIVE_HIGH>;
-	num-lanes = <4>;
-	vpcie3v3-supply = <&vcc3v3_sys>;
+	status = "disabled";
 };
 
 &pinctrl {
@@ -134,4 +122,21 @@
 	enable-active-high;
 	gpios = <&gpio4 RK_PD2 GPIO_ACTIVE_HIGH>;
 	vin-supply = <&vcc5v0_sys>;
+};
+
+
+&gmac {
+	assigned-clock-parents = <&clkin_gmac>;
+	assigned-clocks = <&cru SCLK_RMII_SRC>;
+	clock_in_out = "output";
+	pinctrl-names = "rmii";
+	pinctrl-0 = <&rgmii_pins>, <&phy_intb>, <&phy_rstb>;
+	phy-mode = "rgmii";
+	phy-supply = <&vcc3v3_s3>;
+	snps,reset-gpio = <&gpio3 RK_PB7 GPIO_ACTIVE_HIGH>;
+	snps,reset-active-low;
+	snps,reset-delays-us = <0 10000 1000000>;
+	tx_delay = <0x28>;
+	rx_delay = <0x13>;
+	status = "okay";
 };
