@@ -128,12 +128,13 @@
 &gmac {
 	assigned-clock-parents = <&clkin_gmac>;
 	assigned-clocks = <&cru SCLK_RMII_SRC>;
+	assigned-clock-rates = <50000000>;
 	clock_in_out = "output";
-	pinctrl-names = "rmii";
-	pinctrl-0 = <&rgmii_pins>, <&phy_intb>, <&phy_rstb>;
-	phy-mode = "rgmii";
+	pinctrl-names = "default";
+	pinctrl-0 = <&rgmii_pins>;
+	phy-mode = "rmii";
 	phy-supply = <&vcc3v3_s3>;
-	snps,reset-gpio = <&gpio3 RK_PB7 GPIO_ACTIVE_HIGH>;
+	snps,reset-gpio = <&gpio3 RK_PB7 GPIO_ACTIVE_LOW>;
 	snps,reset-active-low;
 	snps,reset-delays-us = <0 10000 1000000>;
 	tx_delay = <0x28>;
